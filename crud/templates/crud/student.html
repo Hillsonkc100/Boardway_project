@@ -1,0 +1,48 @@
+{% extends 'commons/layouts/base.html' %}
+
+{% block title %}Student{% endblock %}
+
+{% block content %}
+    {% include 'includes/nav.html' %}
+    <br>
+    <div class="container">
+        <a href="{% url 'crud_add_student' %}" class="btn btn-success" style="float: right">Add Student</a>
+        <h1>Student</h1><br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Classroom</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>
+                        {% if student.classroom %}
+                            {{ student.classroom.name }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'detail_student' student.id %}" class="btn btn-primary">Detail</a>
+                        <a href="{% url 'delete_student' student.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

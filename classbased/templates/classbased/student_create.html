@@ -1,0 +1,22 @@
+{% extends 'commons/layouts/base.html' %}
+
+{% block title %}
+    Add Student
+{% endblock %}
+
+{% block content %}
+    {% include 'classbased/includes/nav.html' %}
+    <br>
+    <div class="container">
+        <h2>Add Student</h2>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group" style="width: 50%">
+                {{ form }}
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+{% endblock %}

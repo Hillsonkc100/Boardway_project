@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Context</title>
+</head>
+<body>
+Name: {{ student.name }}<br>
+Age: {{ student.age }}<br>
+Email: {{ student.email }}<br>
+Address: {{ student.address }}
+<br><br><br>
+{% for s in students %}
+    {% if s.age > 25 %}
+        Name: {{ s.name }}<br>
+        Age: {{ s.age }}<br>
+        Email: {{ s.email| truncatechars:3 }}<br>
+        Address: {{ s.address }}<br><br>
+    {% elif s.age == 25 %}
+        <p>{{ s.name }}'s age is exactly 25</p>
+    {% else %}
+        <p>{{ s.name }}'s age is less than 25</p>
+    {% endif %}
+
+{% endfor %}
+
+
+{{ students.0.name }}
+</body>
+</html>

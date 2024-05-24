@@ -1,0 +1,34 @@
+1. API stands for Application Programming Interface
+2. It is a medium to communicate among different entities. (FE-BE, BE-BE, Mobile-BE)
+3. The communication medium is JSON (Javascript Object Notation)
+
+There are two types of API calls
+1. SOAP API
+2. REST API
+
+
+=> In SOAP APIs communication is done in XML format
+<student>
+    <first_name>Jon</first_name>
+    <last_name>fghjk</last_name>
+</student>
+
+
+=> We use /make REST API in this course
+=> REST stands for Representational State Transfer
+=> Here we communicate in JSON
+{
+    "student":{
+        "first_name": "JON",
+        "last_name": "dfgh"
+    }
+}
+
+
+Q. Why to use DRF (Django Rest Framework) if we can make APIs using Django itself?
+    => There are lots of packages already created in DRF for APIs which are not present in Django.
+1. Serializer
+    ->DRF provides serialization / deserialization feature not included in Django
+2. API Authentication and Permission
+3. PAGINATION and Filter Backend for API
+4. Throttling
